@@ -1,3 +1,4 @@
+const { config } = require('dotenv');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -8,6 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api');
 
+config();
 var app = express();
 
 // view engine setup
