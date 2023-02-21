@@ -1,0 +1,17 @@
+sudo vim /etc/systemd/system/YourAppName.service
+[Unit]
+Description=My App
+After=multi-user.target
+
+[Service]
+ExecStart=DEBUG=myapp:* /usr/bin/node /home/ec2-user/myapp/bin/wwww
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=YourAppName
+User=ec2-user
+EnvironmentFile=/home/ec2-user/myapp/myapp.env
+
+[Install]
+WantedBy=multi-user.target
